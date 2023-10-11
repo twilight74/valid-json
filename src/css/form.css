@@ -13,8 +13,8 @@ input[type="text"],
   }
   
 input[type="submit"] {
-    margin: 20px;
-    background: #007bff;
+    margin: 5px ;
+    background: #248157;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -23,5 +23,6 @@ input[type="submit"] {
   }
   
 input[type="submit"]:hover {
-    background: deepskyblue;
+    background: #66b994;
   }
+  
