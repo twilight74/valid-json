@@ -1,5 +1,27 @@
- .text-form {
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box; 
-} 
+form {
+    margin: 5px ;
+    padding: 20px;
+  }
+  
+input[type="text"],
+  textarea {
+    width: 94vw;
+    height: 80vh;
+    padding: 10px;
+    border: 1px;
+    border-radius: 4px; 
+  }
+  
+input[type="submit"] {
+    margin: 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+input[type="submit"]:hover {
+    background: deepskyblue;
+  }

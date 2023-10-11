@@ -1,19 +1,57 @@
-import React,{useState} from "react";
+import React from "react";
 import './css/form.css'
+import { useForm } from "react-hook-form"
+import * as yup from 'yup'
+import {yupResolver} from '@hookform/resolvers/yup'
 
-function Form() {
-    const [text, setText] = useState('');
-  
+
+const schema = yup.object().shape({
+    data : yup.string().required().test("ok","notok",
+    (value)=>{
+        try {
+            JSON.parse(value);
+            return true;
+        } catch (e){
+            return false;
+        }
+    }
+    )
+    })
+
+
+const Form = () =>{
+    const {register ,handleSubmit,formState:{errors}} = useForm({resolver : yupResolver(schema)})
+    const onFormSubmit = (data) => {
+        // console.log("the form is submit")
+        // console.log(data)
+        if (data){
+            if (!errors.data) {
+                // console.log("ok")
+                alert("ok")
+            }
+            else {
+                alert("json is not valid")
+            }
+        }
+        else {
+            alert("empty!")
+        }
+
+    
+    }
     return (
-      <form>
-        <textarea 
-          className="text-form"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Paste the JSON code"
-        />
-      </form>
-    );
-  }
+        <>
+        <form onSubmit={handleSubmit(onFormSubmit)}>
+            <textarea type="text" placeholder="Paste the Json code " {...register("data")}/>
+            {/* {errors.data && (alert("josn not valid"))} */}
+            
+            <input type="submit" value="check json"/>
+        </form>
+        </>
+    )
+}
+
+
+
 
 export default Form;
