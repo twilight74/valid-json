@@ -1,15 +1,23 @@
+div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
 form {
-    margin: 5px ;
-    padding: 20px;
-  }
+  border: 1px solid #ccc;
+  padding: 10px;
+}
   
 input[type="text"],
   textarea {
-    width: 94vw;
+    width: 47vw;
     height: 80vh;
-    padding: 10px;
+    padding: 10px 5px;
     border: 1px;
     border-radius: 4px; 
+    resize: none;
+
   }
   
 input[type="submit"] {
